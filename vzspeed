@@ -1,5 +1,11 @@
 #!/bin/bash
 VPS=$1
+if [ -z ${VPS} ];
+then
+    printf "Error: VMID is missing\n";
+    printf "Usage: vzspeed VMID";
+    exit
+fi
 while true
 do
   R1=`/usr/sbin/vzctl exec $VPS cat /sys/class/net/venet0/statistics/rx_bytes`
