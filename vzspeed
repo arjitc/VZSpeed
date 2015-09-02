@@ -8,6 +8,7 @@ then
 fi
 while true
 do
+  printf "Displaying Network usage for VMID: $VPS \n";
   R1=`/usr/sbin/vzctl exec $VPS cat /sys/class/net/venet0/statistics/rx_bytes`
   T1=`/usr/sbin/vzctl exec $VPS cat /sys/class/net/venet0/statistics/tx_bytes`
   sleep 1
@@ -17,5 +18,5 @@ do
   RBPS=`expr $R2 - $R1`
   TKBPS=`expr $TBPS / 1024`
   RKBPS=`expr $RBPS / 1024`
-  echo "$VPS| TX: $TKBPS kB/s RX: $RKBPS kB/s"
+  echo "TX: $TKBPS kB/s | RX: $RKBPS kB/s"
 done
