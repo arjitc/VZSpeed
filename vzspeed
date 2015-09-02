@@ -2,7 +2,7 @@
 VPS=$1
 if [ -z ${VPS} ];
 then
-    printf "Error: VMID is missing\n";
+    printf "Error: VMID missing/undefined\n";
     printf "Usage: vzspeed VMID";
     exit
 fi
