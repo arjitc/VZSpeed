@@ -6,9 +6,9 @@ then
     printf "Usage: vzspeed VMID";
     exit
 fi
+printf "Displaying Network usage for VMID: $VPS \n";
 while true
 do
-  printf "Displaying Network usage for VMID: $VPS \n";
   R1=`/usr/sbin/vzctl exec $VPS cat /sys/class/net/venet0/statistics/rx_bytes`
   T1=`/usr/sbin/vzctl exec $VPS cat /sys/class/net/venet0/statistics/tx_bytes`
   sleep 1
